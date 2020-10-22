@@ -1,0 +1,116 @@
+﻿@*@model IEnumerable<WebApplication2.Models.Theatrecrud>
+
+    @{
+        ViewBag.Title = "Admin";
+    }
+
+    <h2>Admin</h2>
+
+    <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    <form action="/Home" method="get">
+        <button class="button button1" type="submit" style="float: right" formaction="/Theatrecruds/Home">Home</button>
+    </form>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TheatreName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>IMAX BIG cinemas</td>
+            <td>Mumbai</td>
+            <td><button class="button button1">Book Ticket</button></td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TheatreName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.TheatreId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.TheatreId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.TheatreId })
+                </td>
+            </tr>
+        }
+
+    </table>*@
+@model IEnumerable<WebApplication2.Models.Theatrecrud>
+
+@{
+    ViewBag.Title = "Admin";
+}
+@*<form action="/Theatercrud1/Home" method="get">
+    <button type="submit" class="btn btn-success" style="float:right; formaction="/Theatercrud1/Home">Home</button>
+</form>*@
+    <form action="/Home" method="get">
+        <button class="button button1" type="submit" style="float: right" formaction="/Theatrecruds/Home">Home</button>
+    </form>
+<h2>Admin</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TheatreName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>INOX</td>
+        <td>Punjab</td>
+        <td>Default</td>
+    </tr>
+    <tr>
+        <td>Cinepolis</td>
+        <td>Banglore</td>
+        <td>Default</td>
+    </tr>
+    <tr>
+        <td>MyCinema</td>
+        <td>Indore</td>
+        <td>Default</td>
+    </tr>
+    <tr>
+        <td>Metro</td>
+        <td>Ujjain</td>
+        <td>Default</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheatreName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TheatreId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TheatreId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TheatreId })
+            </td>
+        </tr>
+    }
+
+</table>

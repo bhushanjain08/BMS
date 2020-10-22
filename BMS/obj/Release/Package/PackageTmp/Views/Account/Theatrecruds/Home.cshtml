@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication2.Models.Theatrecrud>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<head>
+
+    @Styles.Render("~/Content/css")
+
+</head>
+
+<h2>Book My Show</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TheatreName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>INOX</td>
+        <td>Punjab</td>
+        <td><button type="button" class="btn btn-success">Book Ticket</button></td>
+    </tr>
+    <tr>
+        <td>Cinepolis</td>
+        <td>Banglore</td>
+        <td><button type="button" class="btn btn-success">Book Ticket</button></td>
+    </tr>
+    <tr>
+        <td>MyCinema</td>
+        <td>Indore</td>
+        <td><button type="button" class="btn btn-success">Book Ticket</button></td>
+    </tr>
+    <tr>
+        <td>Metro</td>
+        <td>Ujjain</td>
+        <td><button type="button" class="btn btn-success">Book Ticket</button></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheatreName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                <button type="button" class="btn btn-success">Book Ticket</button>
+
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.TheaterId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TheaterId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TheaterId })*@
+            </td>
+        </tr>
+    }
+
+</table>

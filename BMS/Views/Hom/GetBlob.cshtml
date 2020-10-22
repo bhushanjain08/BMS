@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "GetBlob";
+}
+@model List<string>
+@using (Html.BeginForm("GetBlob", "hom", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <table border="1">
+        <thead>
+            <tr>
+                <br />
+                <th>Movie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (string SingleObj in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@SingleObj" alt="@SingleObj"
+                             style="height:350px; width: auto;" />
+                    </td>
+                    <form action="/Home" method="get">
+                        <button class="btn btn-danger" type="submit" style="float: right" formaction="/Theatrecruds/Home">Back To Theater List</button>
+                    </form>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <form action="GetBlob" method="post">
+
+        <div>
+            <label for="Selectseat">Select no. of seats:</label>
+            <select class="form-control" id="Selectseat" name="Selectseat">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+            </select>
+        </div>
+        <div>
+            <label for="Fname">Full Name</label>
+            <input type="text" id="Fname" name="Fname" class="form-control" placeholder="First name">
+        </div>
+        <div>
+            <label for="InputEmail1">Email address</label>
+            <input type="email" class="form-control" id="InputEmail1" name="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div>
+            <button class="button button1" type="submit" style="float: left" onclick="myFunction()">Confirm Booking</button>
+        </div>
+
+
+
+        @*<button onclick="myFunction()">Try it</button>*@
+
+        <script>
+            function myFunction() {
+                confirm("Your Booking is confirmed, Check your Email inbox, Thank You!");
+            }
+        </script>
+    </form>
+    <div>
+        @{
+            Html.RenderAction("Moviedesc");
+        }
+    </div>
+}
+

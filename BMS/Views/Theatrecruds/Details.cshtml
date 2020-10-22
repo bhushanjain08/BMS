@@ -1,0 +1,36 @@
+﻿
+@model WebApplication2.Models.Theatrecrud
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Theatercrud1</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TheatreName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheatreName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TheatreId }) |
+    @Html.ActionLink("Back to List", "Admin")
+</p>
